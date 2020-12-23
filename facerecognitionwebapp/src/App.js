@@ -39,7 +39,7 @@ class App extends Component {
       input:'',
       imageUrl:'',
       box: {},
-      route: 'home',
+      route: 'signin',
     }
   }
 
