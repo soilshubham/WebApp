@@ -7,6 +7,9 @@ import FaceRecognition from './Components/FaceRecognition/FaceRecognition';
 import Logo from './Components/Logo/Logo';
 import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm';
 import Rank from './Components/Rank/Rank';
+import SignIn from './Components/SignIn/SignIn';
+import Register from './Components/Register/Register';
+
 import './App.css';
 
 const app = new Clarifai.App({
@@ -36,6 +39,7 @@ class App extends Component {
       input:'',
       imageUrl:'',
       box: {},
+      route: 'home',
     }
   }
 
@@ -71,20 +75,47 @@ class App extends Component {
 
   }
 
+  onRouteChange = (routeValue) =>{
+    this.setState({route: routeValue})
+  }
+
   render(){
-    return (
-    <div className="App">
-      <Particles params = {particleOptions} className="Particles" />
-      <Navigation/>
-      <div className="logoComp">
-      {/*<Logo />*/}
-      </div>
-      
-      <Rank/>
-      <ImageLinkForm onInputChange = {this.onInputChange} onButtonSubmit = {this.onButtonSubmit} />
-      <FaceRecognition box = {this.state.box} imageUrl = {this.state.imageUrl} />
-    </div>
-  );}
+
+    switch(this.state.route){
+
+      case 'home':
+        return (
+          <div id="home-page">
+            <Particles params = {particleOptions} className="Particles" />
+            <Navigation currentRoute={this.state.route} onRouteChange={this.onRouteChange} />
+            <div className="logoComp">
+            {/*<Logo />*/}
+            </div>
+            
+            <Rank/>
+            <ImageLinkForm onInputChange = {this.onInputChange} onButtonSubmit = {this.onButtonSubmit} />
+            <FaceRecognition box = {this.state.box} imageUrl = {this.state.imageUrl} />
+          </div>
+        );
+
+      case 'signin':
+        return (
+          <div id="signin-page">
+            <Particles params = {particleOptions} className="Particles" />
+            <Navigation currentRoute={this.state.route} onRouteChange={this.onRouteChange} />
+            <SignIn onRouteChange={this.onRouteChange}/>
+          </div>
+        );
+      case 'register':
+        return (
+          <div id="register-page">
+            <Particles params = {particleOptions} className="Particles" />
+            <Navigation currentRoute={this.state.route} onRouteChange={this.onRouteChange} />
+            <Register onRouteChange={this.onRouteChange} />
+          </div>
+        );
+    }
+  }
 }
 
 export default App;

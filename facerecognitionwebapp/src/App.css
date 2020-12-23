@@ -1,6 +1,15 @@
-.App {
+#home-page {
   text-align: center;
 }
+
+#signin-page {
+  text-align: center;
+}
+
+#register-page {
+  text-align: center;
+}
+
 
 .logoComp{
   position: absolute;

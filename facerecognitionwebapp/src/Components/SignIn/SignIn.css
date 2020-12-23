@@ -1,0 +1,36 @@
+.signin-container{
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(2px);
+    width: 350px;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 10vh;
+}
+
+
+.signin-title{
+    padding: 50px 0 40px 0;
+    font-weight: normal;
+}
+
+.btn-signin{
+    padding-top: 10px;
+    padding-bottom: 30px;
+    margin: 0 4em;
+}
+
+.btn-signin-register{
+    font-size: small;
+    padding: 20px 0 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .signin-container{
+        width: 90vw;
+    }
+    .btn-signin{
+        padding-top: 10px;
+        padding-bottom: 30px;
+        margin: 0 90px;
+    }
+}
